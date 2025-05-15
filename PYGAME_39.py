@@ -106,4 +106,17 @@ while running:
     if dragging_rect:
         pg.draw.rect(screen, RECTANGLE_COLOR, (top_left, current_size), 1)
 
-    # Отображение сохра
+    # Отображение сохранённых прямоугольников
+    for rect, color, filled in rectangles:
+        if filled:
+            pg.draw.rect(screen, color, rect)
+        else:
+            pg.draw.rect(screen, color, rect, 1)
+
+    # Палитра
+    draw_palette()
+
+    pg.display.flip()
+    clock.tick(FPS)
+
+pg.quit()
